@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>恋爱风格测试</title>
+  <style>
+      body {
+          font-family: '宋体';
+          line-height: 1.5;
+          background-image: url('https://tse1-mm.cn.bing.net/th/id/OIP-C.0vPDsYr0OmQwb3icUcgjywHaNJ?rs=1&pid=ImgDetMain');
+          background-size: cover;
+    
+      }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    h2 {
+      color: #666;
+      text-align: center;
+    }
+
+    form {
+      width: 50%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form p {
+      font-weight: bold;
+    }
+
+    form label {
+      font-weight: normal;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    #result-page {
+      width: 50%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      background-image: url('https://intranetproxy.alipay.com/skylark/lark/0/2024/png/37256663/1723813306810-8924540f-22a4-4e7e-9384-350a1dca3635.png');
+      background-size: cover;
+      color: #333;
+      font-size: 18px;
+    }
+
+    #result-page h2 {
+      margin-top: 0;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #result-page p {
+      margin-bottom: 30px;
+    }
+
+    #result-page img {
+      width: 80%;
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+   
+  </style>
+</head>
+
+<body bgcolor=" #ffd7f2">
+  <h1>测测你的恋爱风格</h1>
+  <h2>一款超准的恋爱匹配度测试</h2>
+  <form id="testForm">
+    <p>1. 恋人很久不回你消息时</p>
+    <label>
+      <input type="radio" name="q1" value="A">心想恋人应该在忙，晚点再找 TA<br>
+    </label>
+    <label>
+      <input type="radio" name="q1" value="B">多次打电话和发短信，找到恋人才能心安<br>
+    </label>
+    <label>
+      <input type="radio" name="q1" value="C">没事啦，不回很正常啊<br>
+    </label>
+    <label>
+      <input type="radio" name="q1" value="D">下次我也这样很久不理 TA<br>
+    </label>
+
+    <p>2. 恋人在工作/学习上遇到困难感到沮丧时</p>
+    <label>
+      <input type="radio" name="q2" value="A">给 TA 一个拥抱并给予安慰<br>
+    </label>
+    <label>
+      <input type="radio" name="q2" value="B">给出建议，帮助 TA 克服困难<br>
+    </label>
+    <label>
+      <input type="radio" name="q2" value="C">给对方空间思考，TA 自己可以好起来<br>
+    </label>
+    <label>
+      <input type="radio" name="q2" value="D">心里很担心，但又没什么办法<br>
+    </label>
+
+    <p>3. 因小事和恋人吵架时</p>
+    <label>
+      <input type="radio" name="q3" value="A">就事论事，寻求解决办法<br>
+    </label>
+    <label>
+      <input type="radio" name="q3" value="B">激烈争吵后又容易低头认错<br>
+    </label>
+    <label>
+      <input type="radio" name="q3" value="C">容易回避问题或责怪对方，不理对方<br>
+    </label>
+    <label>
+      <input type="radio" name="q3" value="D">沉默，只想事情快点过去<br>
+    </label>
+
+    <p>4. 制定出去玩的计划时</p>
+    <label>
+      <input type="radio" name="q4" value="A">询问对方的意见，一起商量决定<br>
+    </label>
+    <label>
+      <input type="radio" name="q4" value="B">习惯性的独立，自己一手包办<br>
+    </label>
+    <label>
+      <input type="radio" name="q4" value="C">考虑对方的感受，让对方决定就好了<br>
+    </label>
+    <label>
+      <input type="radio" name="q4" value="D">自己有想法但不敢说，对 TA 的提议又不太感兴趣<br>
+    </label>
+
+    <button type="button" onclick="submitTest()">提交测试</button>
+  </form>
+
+  <script>
+    function submitTest() {
+      let answers = {};
+      let inputs = document.getElementsByTagName('input');
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].type === 'radio' && inputs[i].checked) {
+          let question = inputs[i].name;
+          let answer = inputs[i].value;
+          if (answers[question]) {
+            answers[question].push(answer);
+          } else {
+            answers[question] = [answer];
+          }
+        }
+      }
+
+      let counts = {
+        'A': 0,
+        'B': 0,
+        'C': 0,
+        'D': 0
+      };
+
+      for (let key in answers) {
+        for (let i = 0; i < answers[key].length; i++) {
+          counts[answers[key][i]]++;
+        }
+      }
+
+      let maxCount = 0;
+      let maxAnswer = '';
+      for (let key in counts) {
+        if (counts[key] > maxCount) {
+          maxCount = counts[key];
+          maxAnswer = key;
+        }
+      }
+
+      let newWindow = window.open('', '_blank');
+      newWindow.document.write(`
+        <div id="result-page">
+          <h2 align="center">你的恋爱风格：</h2>
+          ${getResultText(maxAnswer)}
+          <center>
+          <img src="${getResultImage(maxAnswer)}" alt="恋爱类型图片" />
+          </center>
+        </div>
+      `);
+
+      function getResultText(answer) {
+        if (answer === 'A') {
+          return '<h3 align="center">乐观型恋爱风格：</h3><p align="center">类型特点：你仿佛就是天生的恋爱高手，既能化解恋爱中的各种小难题，也能制造出最甜蜜的浪漫。你相信爱情，享受与伴侣亲密的感觉。</p>';
+        } else if (answer === 'B') {
+          return '<h3 align="center">热情型恋爱风格：</h3><p align="center">类型特点：你在恋爱中热情如火，无时无刻都想表达对伴侣的爱意，还不时调皮地玩一些小把戏，引起恋人的注意，增加恋爱中的情趣。</p>';
+        } else if (answer === 'C') {
+          return '<h3 align="center">理智型恋爱风格：</h3><p align="center">类型特点：你在爱情中也始终保持着清醒的头脑，不会因为爱情而没有了自己。你认为距离产生美，过分的亲密会让你感到有压力。</p>';
+        } else if (answer === 'D') {
+          return '<h3 align="center">感受型恋爱风格：</h3><p align="center">类型特点：你细腻而敏感，伴侣的一点一滴都牵动着你的每一根神经。你习惯了在恋爱中小心翼翼，生怕美好的爱情会从你的手中溜走。</p>';
+        }
+      }
+
+      function getResultImage(answer) {
+        if (answer === 'A') {
+          return 'https://s21.ax1x.com/2024/08/17/pACf5V0.jpg';
+        } else if (answer === 'B') {
+          return 'https://s21.ax1x.com/2024/08/17/pACfIaV.jpg';
+        } else if (answer === 'C') {
+          return 'https://s21.ax1x.com/2024/08/17/pACfo5T.jpg';
+        } else if (answer === 'D') {
+          return 'https://s21.ax1x.com/2024/08/17/pACf7PU.jpg';
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
